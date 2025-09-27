@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vesperi: Language of Moon Whisperers</title>
+    <style>
+        :root {
+            --moon-glow: #e0e7ff;
+            --shadow-deep: #0a0a1f;
+        }
+        body {
+            background: linear-gradient(to bottom, #1a1a40, var(--shadow-deep));
+            color: var(--moon-glow);
+            font-family: 'Courier New', monospace;
+            padding: 2rem;
+        }
+        .section {
+            border-bottom: 1px dashed rgba(224, 231, 255, 0.3);
+            padding: 1.5rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .section:hover {
+            background: rgba(20, 20, 50, 0.5);
+        }
+        .hidden-content {
+            display: none;
+            padding-left: 1rem;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px var(--moon-glow);
+        }
+        .lexicon-item:hover {
+            text-shadow: 0 0 8px #a78bfa;
+        }
+    </style>
+</head>
+<body>
+    <h1>VESPERI</h1>
+    <div class="section" onclick="toggleContent('phonology')">
+        <h2>Phonology 🌙</h2>
+        <div id="phonology" class="hidden-content">
+            <!-- Phonology details will appear here -->
+        </div>
+    </div>
+    <!-- Additional sections for Grammar, Lexicon, etc. -->
+    <script>
+        function toggleContent(id) {
+            const element = document.getElementById(id);
+            element.style.display = element.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
