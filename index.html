@@ -1,57 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vesperi: Language of Moon Whisperers</title>
-    <style>
-        :root {
-            --moon-glow: #e0e7ff;
-            --shadow-deep: #0a0a1f;
-        }
-        body {
-            background: linear-gradient(to bottom, #1a1a40, var(--shadow-deep));
-            color: var(--moon-glow);
-            font-family: 'Courier New', monospace;
-            padding: 2rem;
-        }
-        .section {
-            border-bottom: 1px dashed rgba(224, 231, 255, 0.3);
-            padding: 1.5rem 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .section:hover {
-            background: rgba(20, 20, 50, 0.5);
-        }
-        .hidden-content {
-            display: none;
-            padding-left: 1rem;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            text-shadow: 0 0 10px var(--moon-glow);
-        }
-        .lexicon-item:hover {
-            text-shadow: 0 0 8px #a78bfa;
-        }
-    </style>
-</head>
 <body>
     <h1>VESPERI</h1>
     <div class="section" onclick="toggleContent('phonology')">
         <h2>Phonology 🌙</h2>
         <div id="phonology" class="hidden-content">
-            <!-- Phonology details will appear here -->
+            <h3>Consonants</h3>
+            <p>/ʃ/ sh, /ʒ/ zh, /l/, /ɾ/ tapped r, /m/, /n/</p>
+            <h3>Vowels</h3>
+            <p>/ɛ/ (as in "bed"), /ɔ/ (as in "thought"), /aː/ (long "ah")</p>
+            <h3>Phonotactics</h3>
+            <p>Syllables: (C)V(V) only. Stress: penultimate syllable.<br><em>Example: "A'lira" (ah-LEE-rah) - "moon reflection"</em></p>
         </div>
     </div>
-    <!-- Additional sections for Grammar, Lexicon, etc. -->
-    <script>
-        function toggleContent(id) {
-            const element = document.getElementById(id);
-            element.style.display = element.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
+    <div class="section" onclick="toggleContent('grammar')">
+        <h2>Grammar ✨</h2>
+        <div id="grammar" class="hidden-content">
+            <h3>Verb Conjugation (Moon Phases)</h3>
+            <p>Waning (past): -eth suffix<br>Full (present): -ara suffix<br>Waxing (future): -ine suffix</p>
+            <p><em>"Lethara" (I listen now), "Lethine" (I will listen)</em></p>
+            <h3>Noun Classes</h3>
+            <p>Luminescent (-il): Objects touched by moonlight<br>Shadowed (-ul): Darkness-bound entities</p>
+        </div>
+    </div>
+    <div class="section" onclick="toggleContent('lexicon')">
+        <h2>Lexicon 📜</h2>
+        <div id="lexicon" class="hidden-content">
+            <p class="lexicon-item"><strong>Vire</strong> (n.): The silence between owl calls before dawn</p>
+            <p class="lexicon-item"><strong>Es'tara</strong> (phrase): "We walk unseen" (lit. unseen-path walk-we)</p>
+            <p class="lexicon-item"><strong>Karil</strong> (n.): Moonflower (luminescent class)</p>
+        </div>
+    </div>
 </body>
-</html>
