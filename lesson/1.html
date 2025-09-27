@@ -1,55 +1,39 @@
-<div class="lesson-container">
-    <h2>Lesson 1: Whispers Under Moonlight</h2>
-    <div class="dialogue-box">
-        <p><strong>Es'tara, vireth-il?</strong> (Did you walk unseen, night-silence?)</p>
-        <p><em>Literal: Unseen-walk-you? owl-silence-time?</em></p>
-    </div>
-    
-    <div class="exercise">
-        <h3>Conjugate "Letha" (to listen)</h3>
-        <div class="moon-phase" data-phase="waning">◑ Past</div>
-        <div class="moon-phase" data-phase="full">● Present</div>
-        <input type="text" placeholder="Type Vesperi verb..." id="verb-input">
-        <button onclick="checkAnswer()">Check</button>
-        <p id="feedback" style="color:#a78bfa;"></p>
+<div class="audio-section">
+    <h3>Listen to Es'tara:</h3>
+    <div class="audio-control" onclick="speakVesperi('Es-tara vireth-il', 'ɛʃ.ta.ɾa vi.ɾɛθ.il')">
+        <span class="moon-symbol">🌑</span> Play
     </div>
 </div>
 
-<style>
-    .lesson-container {
-        background: linear-gradient(to right, #1a1a40, #0a0a1f);
-        padding: 2rem;
-        border-radius: 16px;
-        border: 1px solid #5e5ee6;
-    }
-    .dialogue-box {
-        border-left: 3px solid #e0e7ff;
-        padding-left: 1rem;
-        margin: 1.5rem 0;
-    }
-    .moon-phase {
-        display: inline-block;
-        padding: 0.8rem;
-        margin: 0.5rem;
-        background: #2a2a6a;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: transform 0.3s;
-    }
-    .moon-phase:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 15px #f0f0ff;
-    }
-</style>
-
 <script>
-    function checkAnswer() {
-        const input = document.getElementById('verb-input').value.toLowerCase();
-        const feedbackElement = document.getElementById('feedback');
-        if (input === "lethara") {
-            feedbackElement.textContent = "Correct! Lethara (I listen now) under the full moon.";
+    function speakVesperi(text, ipa) {
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US'; // Custom phonetics require IPA mapping
+            utterance.pitch = 0.8; // Lower pitch for nocturnal ambiance
+            utterance.rate = 0.9; // Slower cadence
+            speechSynthesis.speak(utterance);
         } else {
-            feedbackElement.textContent = "Almost! Remember: Full moon = -ara suffix.";
+            alert("Moon whispers silenced: Update your browser");
         }
     }
 </script>
+
+<style>
+    .audio-control {
+        padding: 0.8rem;
+        background: #2a2a6a;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: box-shadow 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .audio-control:hover {
+        box-shadow: 0 0 12px #a78bfa;
+    }
+    .moon-symbol {
+        font-size: 1.2rem;
+    }
+</style>
