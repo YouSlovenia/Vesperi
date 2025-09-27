@@ -1,0 +1,45 @@
+<div class="keyboard-container">
+    <div class="vesperi-key" data-sound="ʃ">sh</div>
+    <div class="vesperi-key" data-sound="ʒ">zh</div>
+    <div class="vesperi-key" data-sound="ɾ">r</div>
+    <!-- Moon phase keys -->
+    <div class="vesperi-key moon-key" data-phase="waning">◑</div>
+    <div class="vesperi-key moon-key" data-phase="full">●</div>
+</div>
+<style>
+    .keyboard-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.5rem;
+        padding: 1rem;
+        background: #0f0f2a;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(94, 92, 230, 0.3);
+    }
+    .vesperi-key {
+        padding: 1rem;
+        text-align: center;
+        background: #1e1e4a;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        user-select: none;
+    }
+    .vesperi-key:hover {
+        background: #2a2a6a;
+        box-shadow: 0 0 10px #5e5ee6;
+    }
+    .moon-key:hover {
+        box-shadow: 0 0 15px #f0f0ff;
+    }
+</style>
+<script>
+    document.querySelectorAll('.vesperi-key').forEach(key => {
+        key.addEventListener('click', () => {
+            const sound = key.getAttribute('data-sound');
+            const phase = key.getAttribute('data-phase');
+            if (sound) console.log(`Vesperi phoneme: /${sound}/`);
+            if (phase) console.log(`Selected verb tense: ${phase}`);
+        });
+    });
+</script>
